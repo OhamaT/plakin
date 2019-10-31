@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>勤怠管理</h1>
-
+    <head>
+        <div class="header">
+          <h1>社用勤怠管理</h1>
+          <link rel="stylesheet" herf="users.scss">
+        </div>
+    </head>
+    
 <table>
   <thead>
-    <tr>
-      <th>氏名</th>
+<!--    <tr>
+      <th>氏名</th> -->
     <!--  <th>年齢</th>  -->
       <th colspan="3"></th>
     </tr>
@@ -14,17 +19,35 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+    <!--    <td><%= user.name %></td>  -->
         <!--  <td><%= user.age %></td>  -->
-        <td><%= link_to '詳細', user %></td>
+    <!--    <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
         <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
+        </td>  -->
+      </tr> 
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to '新規登録', new_user_path %>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">メールアドレス</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="メールアドレス">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">パスワード</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="パスワード">
+  </div>
+<!--  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>  -->
+  <button type="submit" class="btn btn-primary">ログイン</button>
+<div class="new_user">
+  <%= link_to '新規登録', new_user_path %>
+</div>
+</form>
